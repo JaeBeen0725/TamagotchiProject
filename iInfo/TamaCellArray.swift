@@ -11,6 +11,22 @@ struct TamaCellArray {
     var tamaCellArray = [TamaCellValue(tamaName: "따끔따끔 다마고치", tamaImage: UIImage(named: "1-6")!),
                          TamaCellValue(tamaName: "방실방실 다마고치", tamaImage: UIImage(named: "2-6")!),
                          TamaCellValue(tamaName: "반짝반짝 다마고치", tamaImage: UIImage(named: "3-6")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
+                         TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
                          TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!)]
     
     var ouchTama: [UIImage] = [UIImage(named: "1-1")!,UIImage(named: "1-2")!,UIImage(named: "1-3")!,UIImage(named: "1-4")!,UIImage(named: "1-5")!,UIImage(named: "1-6")!,UIImage(named: "1-7")!,UIImage(named: "1-8")!,UIImage(named: "1-9")!]

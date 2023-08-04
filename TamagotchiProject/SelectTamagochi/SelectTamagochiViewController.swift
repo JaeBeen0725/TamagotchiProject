@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SelectTamagochiViewController: UIViewController {
 var tamaArray = TamaCellArray()
     
@@ -46,7 +47,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tamaArray.tamaCellArray.count
+        return tamaArray.tamaCellArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,10 +55,10 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
             showAlert()
             return UICollectionViewCell()
         }
-        var row = tamaArray.tamaCellArray[indexPath.row]
         
+        let row = tamaArray.tamaCellArray[indexPath.row]
+       
         cell.tamaCell(row: row)
-        
         
         
         return cell
