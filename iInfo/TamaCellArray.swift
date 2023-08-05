@@ -29,6 +29,9 @@ struct TamaCellArray {
                          TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!),
                          TamaCellValue(tamaName: "준비중이에요", tamaImage: UIImage(named: "noImage")!)]
     
+    var tamaName = ["따끔따끔 다마고치", "방실방실 다마고치", "반짝반짝 다마고치"]
+    var tamaImage = [UIImage(named: "1-6")!,UIImage(named: "2-6")!,UIImage(named: "3-6")!]
+    
     var ouchTama: [UIImage] = [UIImage(named: "1-1")!,UIImage(named: "1-2")!,UIImage(named: "1-3")!,UIImage(named: "1-4")!,UIImage(named: "1-5")!,UIImage(named: "1-6")!,UIImage(named: "1-7")!,UIImage(named: "1-8")!,UIImage(named: "1-9")!]
     
     var coolTama: [UIImage] = [UIImage(named: "2-1")!,UIImage(named: "2-2")!,UIImage(named: "2-3")!,UIImage(named: "2-4")!,UIImage(named: "2-5")!,UIImage(named: "2-6")!,UIImage(named: "2-7")!,UIImage(named: "2-8")!,UIImage(named: "2-9")!]

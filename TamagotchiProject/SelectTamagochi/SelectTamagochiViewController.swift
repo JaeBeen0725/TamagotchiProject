@@ -12,10 +12,10 @@ class SelectTamagochiViewController: UIViewController {
 var tamaArray = TamaCellArray()
     
     @IBOutlet var tamaSelectCollectionView: UICollectionView!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         let nib = UINib(nibName: TamagotchiCollectionViewCell.tamaIdentify, bundle: nil)
         tamaSelectCollectionView.register(nib, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.tamaIdentify)
         
@@ -32,7 +32,7 @@ var tamaArray = TamaCellArray()
 
 
 
-extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionViewDataSource {
+extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionViewDataSource{
     
     func selectTamaCollecttionViewLayout() {
         let layout = UICollectionViewFlowLayout()
@@ -64,6 +64,22 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
         return cell
     }
     
-    
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let targetStoryBoard = UIStoryboard(name: "Select", bundle: nil)
+      let selectVC = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
+        
+        selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
+        selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
+        
+     
+        let navigation = UINavigationController(rootViewController: selectVC)
+        navigation.modalPresentationStyle = .fullScreen
+       
+        navigation.view.isOpaque = false
+        present(navigation, animated: true)
+    }
+   
 }
+
+
+
