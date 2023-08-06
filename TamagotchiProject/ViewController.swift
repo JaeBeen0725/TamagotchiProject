@@ -30,8 +30,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(ButtonClicked))
         
     }
+    
+    @objc
+  func ButtonClicked() {
+       
+      let targetStoryBoard = UIStoryboard(name: "SetUp", bundle: nil)
+    let selectVC = targetStoryBoard.instantiateViewController(identifier: "SetUpViewController") as! SetUpViewController
+      
+  
+      let navigation = UINavigationController(rootViewController: selectVC)
+      navigation.modalPresentationStyle = .overCurrentContext
+     
+  
+      present(navigation, animated: true)
+       
+    }
+    
     
     @IBAction func foodAndWater(_ sender: UIButton) {
         
@@ -71,32 +88,32 @@ class ViewController: UIViewController {
         let b: Double = UserDefaults.standard.double(forKey: "ww")
         print("f: \(a)")
         print("w: \(b)")
-        var levell = Int(a / 5 + b / 2)
+        let levell = Int(a / 5 + b / 2)
         print(levell)
         
         switch levell {
         case 0 ..< 20 :
-           return level.text = "LV1"
+           level.text = "LV1"
         case 20 ..< 30:
-            return level.text = "LV2"
+             level.text = "LV2"
         case 30 ..< 40:
-            return level.text = "LV3"
+           level.text = "LV3"
         case 40 ..< 50:
-            return level.text = "LV4"
+            level.text = "LV4"
         case 50 ..< 60:
-            return level.text = "LV5"
+            level.text = "LV5"
         case 60 ..< 70:
-            return level.text = "LV6"
+             level.text = "LV6"
         case 70 ..< 80:
-            return level.text = "LV7"
+             level.text = "LV7"
         case 80 ..< 90:
-            return level.text = "Lv8"
+             level.text = "Lv8"
         case 90 ..< 100:
-            return level.text = "LV9"
+             level.text = "LV9"
         case 100... :
-            return level.text = "LV10"
+             level.text = "LV10"
         default:
-            return level.text = "노노(얼럿예정)"
+             level.text = "노노(얼럿예정)"
         }
         
     }

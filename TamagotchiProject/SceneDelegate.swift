@@ -15,31 +15,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-//        
-//        //Debug 작엄임 앱삭제 했다 설치한 너낌
-//        UserDefaults.standard.set(false, forKey: "isLaunched")
-//
-//        //1. 만약 유저가 처음 앱을 실행했다면
-//        //UserDefaults false default
-//        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
-//        print(isLaunched)
-//
-//        //2. FirstViewController를 첫 화면으로
-//        if isLaunched == false {
-//            let sb = UIStoryboard(name: "Select", bundle: nil)
-//            let vc = sb.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
-//
-//            window?.rootViewController = vc //윈도우가 있다면 코드를 실행해! 같은느낌
-//        } else {
-//            //3. 그게 아니라면 Libray~를 첫 화면으로
-//                let sb = UIStoryboard(name: "Main", bundle: nil)
-//                let vc = sb.instantiateViewController(identifier: "ViewController") as! ViewController
-//            let nav = UINavigationController(rootViewController:  vc)
-//
-//            window?.rootViewController = nav
-//        }
-//
-//        window?.makeKeyAndVisible()
+
+        UserDefaults.standard.set(false, forKey: "isLaunched")
+
+      
+        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
+        print(isLaunched)
+
+        if isLaunched == false {
+            let sb = UIStoryboard(name: "Select", bundle: nil)
+            let vc = sb.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
+
+            window?.rootViewController = vc
+        } else {
+            
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let vc = sb.instantiateViewController(identifier: "ViewController") as! ViewController
+            let nav = UINavigationController(rootViewController:  vc)
+
+            window?.rootViewController = nav
+        }
+
+        window?.makeKeyAndVisible()
 
     }
 

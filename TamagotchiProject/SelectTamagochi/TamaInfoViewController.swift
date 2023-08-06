@@ -35,15 +35,16 @@ let asdfa = ChangeNameViewController()
   
 
     @IBAction func asdfae(_ sender: UIButton) {
-        let targetStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let signUpVC =  targetStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        signUpVC.modalPresentationStyle = .fullScreen
+       
+   
+        
+            }
+    
+   
 
-          self.present(signUpVC, animated: false)
-  
 }
     
-    }
+    
         
         
         
