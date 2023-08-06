@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1982.4427480916029" y="-27.464788732394368"/>
         </scene>
         <!--Tama Info View Controller-->
         <scene sceneID="Ef7-rD-ee6">
@@ -71,8 +71,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPK-2U-4g2">
                                         <rect key="frame" x="42" y="432" width="75" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="cancleButtonClicked:" destination="Ucq-df-PvZ" eventType="touchUpInside" id="bBT-8e-LvJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwV-u3-xIA">
                                         <rect key="frame" x="211" y="432" width="75" height="35"/>
@@ -121,15 +125,17 @@
                             <constraint firstItem="u56-Ei-TpN" firstAttribute="centerX" secondItem="W4L-e3-VIP" secondAttribute="centerX" id="YHN-Ge-d4k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="B37-DQ-SKa"/>
                     <connections>
+                        <outlet property="cancleButton" destination="GPK-2U-4g2" id="ZNA-M9-MGs"/>
+                        <outlet property="selectButton" destination="DwV-u3-xIA" id="PCr-MA-ayZ"/>
                         <outlet property="tamaSelectImage" destination="q3V-jb-cSB" id="pX2-I1-osk"/>
                         <outlet property="tamaSelectLabel" destination="BXV-72-wBh" id="oWE-N8-4w6"/>
+                        <outlet property="tamaSelectMentTextView" destination="eLr-hh-9GG" id="QxP-yi-h38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3f-5r-jCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.6564885496182" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2721.3740458015268" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>

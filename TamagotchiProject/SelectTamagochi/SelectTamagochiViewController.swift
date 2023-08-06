@@ -70,12 +70,12 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
         
         selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
         selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
-        
+        selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
      
         let navigation = UINavigationController(rootViewController: selectVC)
         navigation.modalPresentationStyle = .fullScreen
        
-        navigation.view.isOpaque = false
+    
         present(navigation, animated: true)
     }
    
