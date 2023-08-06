@@ -6,9 +6,10 @@
 //
 import UIKit
 
-class TamaInfoViewController: UIViewController {
-
-  
+class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
+    var window: UIWindow?
+let asdfa = ChangeNameViewController()
+  let qwdq = SelectTamagochiViewController()
     @IBOutlet var tamaSelectImage: UIImageView!
     @IBOutlet var tamaSelectLabel: UILabel!
     @IBOutlet var tamaSelectMentTextView: UITextView!
@@ -31,6 +32,33 @@ class TamaInfoViewController: UIViewController {
     @IBAction func cancleButtonClicked(_ sender: UIButton) {
        dismiss(animated: true, completion: nil)
     }
+  
+
+    @IBAction func asdfae(_ sender: UIButton) {
+        let targetStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signUpVC =  targetStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        signUpVC.modalPresentationStyle = .fullScreen
+
+          self.present(signUpVC, animated: false)
+  
+}
+    
+    }
+        
+        
+        
+    
+    
+    
+  
+    
+    
+     
+      
+    
+    
+    
+   
+    
     
 
-}

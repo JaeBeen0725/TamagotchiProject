@@ -7,23 +7,50 @@
 
 import UIKit
 
-class SetUpViewController: UIViewController {
 
+class SetUpViewController: UIViewController {
+ let settingTableViewCell = SettingTableViewCell()
+    @IBOutlet var tata: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tata.dataSource = self
+        tata.delegate = self
+      
     }
     
 
-    /*
-    // MARK: - Navigation
+   
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingTableViewCell.option.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell")!
+        
+        cell.textLabel?.text = settingTableViewCell.option[indexPath.row]
+    
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let changNameStoryBoard = UIStoryboard(name: "SetUp", bundle: nil)
+        let changNameCollectionView = changNameStoryBoard.instantiateViewController(identifier: "ChangeNameViewController") as! ChangeNameViewController
+        
+        let selectStoryBoard = UIStoryboard(name: "Select", bundle: nil)
+        let selectinfo = selectStoryBoard.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
+        
+        if indexPath.row == 0 {
+            navigationController?.pushViewController(changNameCollectionView, animated: true)
+        } else if indexPath.row == 1{
+            navigationController?.pushViewController(selectinfo, animated: true)
+        }
+}
+    
+    
 }

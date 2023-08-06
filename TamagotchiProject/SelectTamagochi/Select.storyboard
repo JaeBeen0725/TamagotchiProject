@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982.4427480916029" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2909.1603053435115" y="-27.464788732394368"/>
         </scene>
         <!--Tama Info View Controller-->
         <scene sceneID="Ef7-rD-ee6">
@@ -79,10 +79,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwV-u3-xIA">
-                                        <rect key="frame" x="211" y="432" width="75" height="35"/>
+                                        <rect key="frame" x="207" y="432" width="83" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="변경하기"/>
+                                        <connections>
+                                            <action selector="asdasd:" destination="9fd-HE-bBW" eventType="touchUpInside" id="suu-sk-TKq"/>
+                                            <action selector="asdfae:" destination="Ucq-df-PvZ" eventType="touchUpInside" id="gKn-7a-NOa"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eLr-hh-9GG">
                                         <rect key="frame" x="37" y="279" width="240" height="128"/>
@@ -134,8 +139,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3f-5r-jCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9fd-HE-bBW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2721.3740458015268" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3648.0916030534349" y="-27.464788732394368"/>
+        </scene>
+        <!--ViewController-->
+        <scene sceneID="tXS-rD-995">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AAUINavigationController" storyboardName="Main" referencedIdentifier="ViewController" id="LGT-9W-roC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6pY-7g-3gR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKX-hb-tsS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5146" y="-22"/>
         </scene>
     </scenes>
     <resources>

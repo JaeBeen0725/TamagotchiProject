@@ -56,6 +56,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
             return UICollectionViewCell()
         }
         
+        
         let row = tamaArray.tamaCellArray[indexPath.row]
        
         cell.tamaCell(row: row)
@@ -71,9 +72,11 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
         selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
         selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
         selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
-     
+       
+      
+    
         let navigation = UINavigationController(rootViewController: selectVC)
-        navigation.modalPresentationStyle = .fullScreen
+        navigation.modalPresentationStyle = .overCurrentContext
        
     
         present(navigation, animated: true)
