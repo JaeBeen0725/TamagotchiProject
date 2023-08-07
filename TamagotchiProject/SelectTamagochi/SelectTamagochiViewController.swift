@@ -15,10 +15,10 @@ var tamaArray = TamaCellArray()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        navigationItem.title = "다마고치 선택하기"
         let nib = UINib(nibName: TamagotchiCollectionViewCell.tamaIdentify, bundle: nil)
         tamaSelectCollectionView.register(nib, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.tamaIdentify)
-        
+        tamaSelectCollectionView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         tamaSelectCollectionView.delegate = self
         tamaSelectCollectionView.dataSource = self
         
@@ -66,20 +66,28 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         
+       
+                
         let targetStoryBoard = UIStoryboard(name: "Select", bundle: nil)
       let selectVC = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
         
-        selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
-        selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
-        selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
-       
-      
-    
-        let navigation = UINavigationController(rootViewController: selectVC)
-        navigation.modalPresentationStyle = .overCurrentContext
-       
-    
-        present(navigation, animated: true)
+        if indexPath.row < 3 {
+            UserDefaults.standard.set(indexPath.row, forKey: "num")
+            selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
+            selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
+            selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
+            
+            
+            
+            let navigation = UINavigationController(rootViewController: selectVC)
+            navigation.modalPresentationStyle = .overCurrentContext
+            
+            
+            present(navigation, animated: true)
+        } else {
+            showAlert1()
+        }
     }
    
 }

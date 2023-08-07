@@ -16,8 +16,14 @@ class SetUpViewController: UIViewController {
         tata.dataSource = self
         tata.delegate = self
       
+        navigationItem.title = "설정"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(systemName:  "chevron.backward"), style: .plain, target: self, action: #selector(backButton))
     }
     
+    @objc
+    func backButton(){
+        navigationController?.popViewController(animated: true)
+    }
 
    
 }
@@ -32,7 +38,7 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell")!
         
         cell.textLabel?.text = settingTableViewCell.option[indexPath.row]
-    
+        
         
         
         return cell
@@ -49,8 +55,17 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(changNameCollectionView, animated: true)
         } else if indexPath.row == 1{
             navigationController?.pushViewController(selectinfo, animated: true)
+        } else if indexPath.row == 2{
+            showAlert()
+            
+            
         }
+        
+        
+    }
+    
 }
+
     
     
-}
+

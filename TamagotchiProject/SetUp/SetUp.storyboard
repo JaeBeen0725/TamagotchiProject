@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4GX-ry-fPg" customClass="sett">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SettingTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingTableViewCell" textLabel="8Rr-Bk-Ohx" style="IBUITableViewCellStyleDefault" id="Igi-Rf-W0G" customClass="SettingTableViewCell" customModule="TamagotchiProject" customModuleProvider="target">
@@ -44,20 +44,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4GX-ry-fPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="85Q-Yw-gbd"/>
+                            <constraint firstItem="4GX-ry-fPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5fy-zF-lP7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="4GX-ry-fPg" secondAttribute="bottom" id="QBX-kI-lNT"/>
                             <constraint firstItem="4GX-ry-fPg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RIr-rg-71Y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4GX-ry-fPg" secondAttribute="trailing" id="sIl-Fu-Fr8"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="gNW-uL-szE"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tata" destination="4GX-ry-fPg" id="AgV-i6-a11"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="-29"/>
+            <point key="canvasLocation" x="1869.4656488549617" y="-29.577464788732396"/>
         </scene>
         <!--Change Name View Controller-->
         <scene sceneID="3E7-3q-QKv">
@@ -95,11 +97,15 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2MD-m1-nY9"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bossNameChangeTextField" destination="AUX-X9-FQZ" id="Ga0-A3-9ia"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LF4-vV-ruX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707.6335877862596" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="3561.0687022900761" y="-35.211267605633807"/>
         </scene>
         <!--SelectTamagochiViewController-->
         <scene sceneID="SIX-pk-eDl">
@@ -110,6 +116,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRf-Qf-0V7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1734" y="411"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7T3-mK-yjX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N3w-6z-gFZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qg9-8P-ljv">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="VRe-k4-pVU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1O6-GQ-R2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942.74809160305335" y="-29.577464788732396"/>
         </scene>
     </scenes>
     <resources>
