@@ -69,7 +69,7 @@ let ok = UIAlertAction(title: "예!", style: .default , handler: { _ in for key 
 extension ViewController {
     func wrongWordShowAlert() {
         
-        let alert = UIAlertController(title: "다시 입력하세요", message: "0~99개의 양의 정수만 입력해 주세요", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "다시 입력하세요", message: "1~99개의 양의 정수만 입력해 주세요", preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "확인", style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
