@@ -47,14 +47,14 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let changNameStoryBoard = UIStoryboard(name: "SetUp", bundle: nil)
         let changNameCollectionView = changNameStoryBoard.instantiateViewController(identifier: "ChangeNameViewController") as! ChangeNameViewController
-        
-        let selectStoryBoard = UIStoryboard(name: "Select", bundle: nil)
-        let selectinfo = selectStoryBoard.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
-        
+
+//        let selectStoryBoard = UIStoryboard(name: "Select", bundle: nil)
+//        let selectinfo = selectStoryBoard.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
+//        
         if indexPath.row == 0 {
             navigationController?.pushViewController(changNameCollectionView, animated: true)
         } else if indexPath.row == 1{
-            navigationController?.pushViewController(selectinfo, animated: true)
+//            navigationController?.pushViewController(selectinfo, animated: true)
         } else if indexPath.row == 2{
             showAlert()
             

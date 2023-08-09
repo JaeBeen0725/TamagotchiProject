@@ -156,6 +156,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pKd-X5-DMI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0uM-PY-4ql"/>
                             <constraint firstItem="ALZ-xn-jyY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.92" id="2gx-fi-cnW"/>

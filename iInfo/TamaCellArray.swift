@@ -36,8 +36,8 @@ struct TamaCellArray {
 
     
     var growtama: [[UIImage]] = [[UIImage(named: "1-1")!,UIImage(named: "1-2")!,UIImage(named: "1-3")!,UIImage(named: "1-4")!,UIImage(named: "1-5")!,UIImage(named: "1-6")!,UIImage(named: "1-7")!,UIImage(named: "1-8")!,UIImage(named: "1-9")!],[UIImage(named: "2-1")!,UIImage(named: "2-2")!,UIImage(named: "2-3")!,UIImage(named: "2-4")!,UIImage(named: "2-5")!,UIImage(named: "2-6")!,UIImage(named: "2-7")!,UIImage(named: "2-8")!,UIImage(named: "2-9")!],[UIImage(named: "3-1")!,UIImage(named: "3-2")!,UIImage(named: "3-3")!,UIImage(named: "3-4")!,UIImage(named: "3-5")!,UIImage(named: "3-6")!,UIImage(named: "3-7")!,UIImage(named: "3-8")!,UIImage(named: "3-9")!]]
-    var tamaMent = ["안돼요", "왜이래요", "이러지 마세요", "여자의 마음은", "길대랍니다."]
-    var fulltamaMent = ["제발 그만해..","터져요배가","시야가 안보여요","졸려요"]
+    var tamaMent = ["안돼요", "왜이래요", "이러지 마세요", "타마의 마음은", "갈대랍니다."]
+    var fulltamaMent = ["제발 그만해..","터져요배가","앞이 안보여요","졸려요"]
     
    
 }

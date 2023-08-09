@@ -67,9 +67,25 @@ let ok = UIAlertAction(title: "예!", style: .default , handler: { _ in for key 
 }
 
 extension ViewController {
+    func wrongWordShowAlert() {
+        
+        let alert = UIAlertController(title: "다시 입력하세요", message: "0~99개의 양의 정수만 입력해 주세요", preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+    
+    func numshowAlert() {
+        
+        let alert = UIAlertController(title: "숫자만!", message: "숫자만 입력하세요", preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+    
     func showAlert() {
         
-        let alert = UIAlertController(title: "어허", message: "너무많이 먹였어요", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "오류", message: "관리자에게 문의하세요", preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "확인", style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
