@@ -141,7 +141,7 @@
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Ml-huW">
                                                 <rect key="frame" x="186" y="0.0" width="89" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="foodAndWater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxj-aT-SlU"/>
                                                 </connections>
@@ -179,11 +179,14 @@
                             <constraint firstItem="kbJ-hp-Myl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="pdj-BW-ATI"/>
                             <constraint firstItem="CuP-ma-sly" firstAttribute="top" secondItem="ALZ-xn-jyY" secondAttribute="bottom" constant="4" id="yNr-VG-wL2"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kwD-fb-uZM" appends="YES" id="X1J-vc-nCr"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="C9f-r8-7Az"/>
                     <connections>
                         <outlet property="foodCount" destination="yWQ-Ch-TWO" id="5se-k2-pbR"/>
-                        <outlet property="fooood" destination="I6M-LF-8cX" id="DFJ-ku-iHK"/>
+                        <outlet property="foodTextField" destination="I6M-LF-8cX" id="DFJ-ku-iHK"/>
                         <outlet property="foooodButton" destination="oL0-6g-A32" id="hsM-jj-5y6"/>
                         <outlet property="level" destination="oG8-2k-p3k" id="Gkj-eo-2ON"/>
                         <outlet property="mainTamaImageView" destination="ALZ-xn-jyY" id="ykW-tj-WtP"/>
@@ -191,13 +194,28 @@
                         <outlet property="mentTextView" destination="JEN-QL-pxr" id="PJk-uS-D0J"/>
                         <outlet property="mentView" destination="kbJ-hp-Myl" id="XiA-rM-8jp"/>
                         <outlet property="waaaaterButton" destination="o9P-Ml-huW" id="OtO-K3-YXp"/>
-                        <outlet property="waaater" destination="tjw-Lc-pgv" id="kMR-gZ-yja"/>
                         <outlet property="waterCount" destination="bei-Cf-HJX" id="xAY-Mj-2s4"/>
+                        <outlet property="waterTextField" destination="tjw-Lc-pgv" id="kMR-gZ-yja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kwD-fb-uZM">
+                    <connections>
+                        <action selector="keyboard:" destination="BYZ-38-t0r" id="ry2-wJ-7m3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="973.95348837209303" y="-28.326180257510732"/>
+            <point key="canvasLocation" x="973.28244274809151" y="-28.87323943661972"/>
+        </scene>
+        <!--SetUpViewController-->
+        <scene sceneID="zJK-sD-fXT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SetUpViewController" storyboardName="SetUp" referencedIdentifier="SetUpViewController" id="t3A-h8-C3J" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ehL-gI-Rhc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j6d-Ru-X0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="-57"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UlL-Fh-Fny">

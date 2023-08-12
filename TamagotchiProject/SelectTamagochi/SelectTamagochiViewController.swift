@@ -9,13 +9,15 @@ import UIKit
 
 
 class SelectTamagochiViewController: UIViewController {
-var tamaArray = TamaCellArray()
+    var tamaArray = TamaCellArray()
     
     @IBOutlet var tamaSelectCollectionView: UICollectionView!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "다마고치 선택하기"
+        view.backgroundColor =  UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        self.navigationItem.title  = "다마고치 선택하기"
+       
         let nib = UINib(nibName: TamagotchiCollectionViewCell.tamaIdentify, bundle: nil)
         tamaSelectCollectionView.register(nib, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.tamaIdentify)
         tamaSelectCollectionView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
@@ -25,8 +27,13 @@ var tamaArray = TamaCellArray()
         selectTamaCollecttionViewLayout()
     }
     
-
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if UserDefaults.standard.bool(forKey: "isLaunched") == true {
+            
+        }
+    }
+    
     
 }
 
@@ -58,7 +65,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
         
         
         let row = tamaArray.tamaCellArray[indexPath.row]
-       
+        
         cell.tamaCell(row: row)
         
         
@@ -66,18 +73,18 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         
-       
-                
+        
+        
+        
         let targetStoryBoard = UIStoryboard(name: "Select", bundle: nil)
-      let selectVC = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
+        let selectVC = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
         
         if indexPath.row < 3 {
             UserDefaults.standard.set(indexPath.row, forKey: "num")
+            
             selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
             selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
             selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
-            
             
             
             let navigation = UINavigationController(rootViewController: selectVC)
@@ -89,7 +96,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
             showAlert1()
         }
     }
-   
+    
 }
 
 

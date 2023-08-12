@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4GX-ry-fPg" customClass="sett">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4GX-ry-fPg">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SettingTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingTableViewCell" textLabel="8Rr-Bk-Ohx" style="IBUITableViewCellStyleDefault" id="Igi-Rf-W0G" customClass="SettingTableViewCell" customModule="TamagotchiProject" customModuleProvider="target">
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.4656488549617" y="-29.577464788732396"/>
+            <point key="canvasLocation" x="3715.2671755725191" y="-30.281690140845072"/>
         </scene>
         <!--Change Name View Controller-->
         <scene sceneID="3E7-3q-QKv">
@@ -87,6 +87,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MLz-Mp-wik"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="IcY-Dq-QwJ" firstAttribute="top" secondItem="AUX-X9-FQZ" secondAttribute="bottom" id="2ub-0R-u9R"/>
                             <constraint firstItem="IcY-Dq-QwJ" firstAttribute="centerX" secondItem="weE-Zj-wqS" secondAttribute="centerX" id="439-c3-sac"/>
@@ -95,6 +96,9 @@
                             <constraint firstItem="IcY-Dq-QwJ" firstAttribute="width" secondItem="AUX-X9-FQZ" secondAttribute="width" id="bYv-UG-xdd"/>
                             <constraint firstItem="AUX-X9-FQZ" firstAttribute="leading" secondItem="MLz-Mp-wik" secondAttribute="leading" constant="8" id="z0T-3R-rSE"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="07L-4E-KJs" appends="YES" id="j60-K1-6fH"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2MD-m1-nY9"/>
@@ -104,8 +108,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LF4-vV-ruX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="07L-4E-KJs">
+                    <connections>
+                        <action selector="keyboarddismiss:" destination="giM-rc-UYQ" id="per-rG-Rgv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2816" y="-30"/>
+            <point key="canvasLocation" x="4667.93893129771" y="-30.281690140845072"/>
         </scene>
         <!--SelectTamagochiViewController-->
         <scene sceneID="SIX-pk-eDl">
@@ -117,23 +126,15 @@
             </objects>
             <point key="canvasLocation" x="1734" y="411"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7T3-mK-yjX">
+        <!--ViewController-->
+        <scene sceneID="R8r-Uh-oiR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N3w-6z-gFZ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qg9-8P-ljv">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="VRe-k4-pVU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1O6-GQ-R2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="ViewController" id="Wii-hn-bCf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jXm-mf-mcR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPv-4c-0X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942.74809160305335" y="-29.577464788732396"/>
+            <point key="canvasLocation" x="1811" y="18"/>
         </scene>
     </scenes>
     <resources>

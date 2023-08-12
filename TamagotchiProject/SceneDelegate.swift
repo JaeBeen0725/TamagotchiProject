@@ -11,13 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+   
+    let asd = SelectTamagochiViewController()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        guard let scene = (scene as? UIWindowScene) else { return }
+      
+       
+       guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        UserDefaults.standard.set(false, forKey: "isLaunched")
+      // UserDefaults.standard.set(false, forKey: "isLaunched")
       
         let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
         print(isLaunched)
@@ -25,8 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isLaunched == false {
             let sb = UIStoryboard(name: "Select", bundle: nil)
             let vc = sb.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
-
-            window?.rootViewController = vc
+            
+        let nv = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = nv
         } else {
             
                 let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -39,6 +44,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
     }
+    
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

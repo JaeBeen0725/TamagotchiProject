@@ -44,27 +44,7 @@ extension ChangeNameViewController {
 }
 
 
-extension SetUpViewController {
-    func showAlert() {
 
-let alert = UIAlertController(title: "데이터 초기화", message: "처음부터 다시 키우시겠습니까?", preferredStyle: .alert)
-
-let cancel = UIAlertAction(title: "아니오!", style: .cancel)
-let ok = UIAlertAction(title: "예!", style: .default , handler: { _ in for key in
-                                                                            
-    UserDefaults.standard.dictionaryRepresentation().keys {
-    UserDefaults.standard.removeObject(forKey: key.description)
-}
-})
-   
-    
-    alert.addAction(cancel)
-    alert.addAction(ok)
-    
-        present(alert, animated: true)
-     
-    }
-}
 
 extension ViewController {
     func wrongWordShowAlert() {

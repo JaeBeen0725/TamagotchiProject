@@ -26,34 +26,37 @@ class ViewController: UIViewController {
     @IBOutlet var mentTextView: UITextView!
     
     
-    @IBOutlet var fooood: UITextField!
-    @IBOutlet var waaater: UITextField!
+    @IBOutlet var foodTextField: UITextField!
+    @IBOutlet var waterTextField: UITextField!
     
     @IBOutlet var foooodButton: UIButton!
     @IBOutlet var waaaaterButton: UIButton!
     var number = 0
-    let bossname = UserDefaults.standard.string(forKey: "bossName")
+    
+    var bossname = UserDefaults.standard.string(forKey: "bossName")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fooood.keyboardType = .numberPad
-        waaater.keyboardType = .numberPad
-        if bossname == "" || bossname == nil {
-            navigationItem.title = "대장님의 다마고치"
-        } else {
-            navigationItem.title = bossname
-        }
+        //        fooood.keyboardType = .numberPad
+        //        waaater.keyboardType = .numberPad
+        print("====\(number)")
+        
+        
+        
+        
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mainTamaLebel.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mainTamaImageView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mentView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mentTextView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        fooood.borderStyle = .none
-        fooood.placeholder = "밥주세요"
-        fooood.textAlignment = .center
-        waaater.borderStyle = .none
-        waaater.placeholder = "물주세요"
-        waaater.textAlignment = .center
+        foodTextField.borderStyle = .none
+        foodTextField.placeholder = "밥주세요"
+        foodTextField.textAlignment = .center
+        waterTextField.borderStyle = .none
+        waterTextField.placeholder = "물주세요"
+        waterTextField.textAlignment = .center
         foooodButton.titleLabel?.font = UIFont.systemFont(ofSize: 2)
         foooodButton.layer.cornerRadius = 5
         foooodButton.setTitle("밥먹기", for: .normal)
@@ -76,18 +79,44 @@ class ViewController: UIViewController {
         waterCount.sizeToFit()
         waterCount.adjustsFontSizeToFitWidth = true
         
-        egqwg()
+        tamaBriefing()
         
-        foodCount.text = "밥알\(UserDefaults.standard.integer(forKey: "ff"))개"
-        waterCount.text = "물방울\(UserDefaults.standard.integer(forKey: "ww"))개"
+        
         mentTextView.textAlignment = .center
         //        mentTextView.adjustsFontForContentSizeCategory = true
         mentTextView.sizeToFit()
         
-        
+        //  navigationController?.navigationBar.topItem?.backButtonTitle = "뒤로"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(buttonClicked))
         
     }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        foodCount.text = "밥알\(UserDefaults.standard.integer(forKey: "ff"))개"
+        waterCount.text = "물방울\(UserDefaults.standard.integer(forKey: "ww"))개"
+        tamaBriefing()
+        bossname = UserDefaults.standard.string(forKey: "bossName")
+        
+        if bossname == "  " || bossname == nil {
+            
+            navigationItem.title = "대장님의 다마고치"
+            
+        } else {
+            
+            navigationItem.title = bossname
+            
+        }
+        print("MLifeCycleViewController", #function)
+    }
+    
+    @IBAction func keyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
     
     @objc
     func buttonClicked() {
@@ -96,11 +125,7 @@ class ViewController: UIViewController {
         let selectVC = targetStoryBoard.instantiateViewController(identifier: "SetUpViewController") as! SetUpViewController
         
         navigationController?.pushViewController(selectVC, animated: true)
-        //      let navigation = UINavigationController(rootViewController: selectVC)
-        //      navigation.modalPresentationStyle = .overCurrentContext
         
-        
-        //      present(navigation, animated: true)
         
     }
     
@@ -114,19 +139,20 @@ class ViewController: UIViewController {
         switch food {
         case .food:
             
-            if let f = fooood.text{
-                if f.isEmpty{
-                    let count = UserDefaults.standard.integer(forKey: "ff")
+            if let foodText = foodTextField.text{
+                if foodText.isEmpty{
+                    let count = UserDefaults.standard.integer(forKey: "food")
                     let num = count + 1
-                    UserDefaults.standard.set(num, forKey: "ff")
-                    foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "ff"))개"
+                    UserDefaults.standard.set(num, forKey: "food")
+                    foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
                 } else {
-                    guard let ff = Int(f) else{ return wrongWordShowAlert()}
-                    if ff > 0 && ff < 100 {
-                        let count = UserDefaults.standard.integer(forKey: "ff")
-                        let num = count + ff
-                        UserDefaults.standard.set(num, forKey: "ff")
-                        foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "ff"))개"
+                    guard let intFood = Int(foodText) else{ return wrongWordShowAlert()}
+                    if intFood > 0 && intFood < 100 {
+                        let count = UserDefaults.standard.integer(forKey: "food")
+                        let num = count + intFood
+                        UserDefaults.standard.set(num, forKey: "food")
+                        foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
+                        foodTextField.text = ""
                     }else {
                         wrongWordShowAlert()
                     }
@@ -135,130 +161,97 @@ class ViewController: UIViewController {
             
             
         case .water:
-            if let w = waaater.text{
-                if w.isEmpty{
-                    let countt = UserDefaults.standard.integer(forKey: "ww")
+            if let waterText = waterTextField.text{
+                if waterText.isEmpty{
+                    let countt = UserDefaults.standard.integer(forKey: "water")
                     let num1 = countt + 1
-                    UserDefaults.standard.set(num1, forKey: "ww")
-                    waterCount.text = "물 \(UserDefaults.standard.integer(forKey: "ww"))개"
+                    UserDefaults.standard.set(num1, forKey: "water")
+                    waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
                 } else {
-                    guard let ww = Int(w) else{ return wrongWordShowAlert() }
-                    if ww > 0 && ww < 100 {
-                        let countt = UserDefaults.standard.integer(forKey: "ww")
-                        let num1 = countt + ww
-                        UserDefaults.standard.set(num1, forKey: "ww")
-                        waterCount.text = "물 \(UserDefaults.standard.integer(forKey: "ww"))개"
+                    guard let intWater = Int(waterText) else{ return wrongWordShowAlert() }
+                    if intWater > 0 && intWater < 100 {
+                        let countt = UserDefaults.standard.integer(forKey: "water")
+                        let num1 = countt + intWater
+                        UserDefaults.standard.set(num1, forKey: "water")
+                        waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
+                        waterTextField.text = ""
                     }else {
                         wrongWordShowAlert()
                     }
                 }
             }
+            
         }
-        egqwg()
-        
-        
-        
-        /*
-         switch food {
-         case .food :
-         
-         if a == "" && a == nil {
-         let count = UserDefaults.standard.integer(forKey: "ff")
-         let num = count + 1
-         UserDefaults.standard.set(num, forKey: "ff")
-         foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "ff"))개"
-         } else if Int(a!)! > 0 && Int(a!)! < 100{
-         let count = UserDefaults.standard.integer(forKey: "ff")
-         let num = count + Int(a!)!
-         UserDefaults.standard.set(num, forKey: "ff")
-         foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "ff"))개"
-         } else {
-         fullshowAlert()
-         }
-         
-         case .water :
-         if b == "" {
-         let countt = UserDefaults.standard.integer(forKey: "ww")
-         let numt = countt + 1
-         UserDefaults.standard.set(numt, forKey: "ww")
-         waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "ww"))개"
-         } else {
-         let countt = UserDefaults.standard.integer(forKey: "ww")
-         let numt = countt + Int(b!)!
-         UserDefaults.standard.set(numt, forKey: "ww")
-         waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "ww"))개"
-         
-         }
-         
-         }
-         */
+        tamaBriefing()
         
     }
     
-    func egqwg() {
-        let a: Double = UserDefaults.standard.double(forKey: "ff")
-        let b: Double = UserDefaults.standard.double(forKey: "ww")
-        print("f: \(a)")
-        print("w: \(b)")
-        let levell = Int(a / 5 + b / 2)
-        print(levell)
-        
-        switch levell {
-        case 0 ..< 20 :
-            level.text = "LV\(levell / 10)"
-            mainTamaImageView.image = tamaArray.growtama[number][0]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 20 ..< 30:
-            level.text = "LV\(levell / 10)"
-            mainTamaImageView.image = tamaArray.growtama[number][1]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 30 ..< 40:
-            level.text = "LV3"
-            mainTamaImageView.image = tamaArray.growtama[number][2]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 40 ..< 50:
-            level.text = "LV4"
-            mainTamaImageView.image = tamaArray.growtama[number][3]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 50 ..< 60:
-            level.text = "LV5"
-            mainTamaImageView.image = tamaArray.growtama[number][4]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 60 ..< 70:
-            level.text = "LV6"
-            mainTamaImageView.image = tamaArray.growtama[number][5]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 70 ..< 80:
-            level.text = "LV7"
-            mainTamaImageView.image = tamaArray.growtama[number][6]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 80 ..< 90:
-            level.text = "Lv8"
-            mainTamaImageView.image = tamaArray.growtama[number][7]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 90 ..< 100:
-            level.text = "LV9"
-            mainTamaImageView.image = tamaArray.growtama[number][8]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.tamaMent.randomElement()!
-        case 100... :
-            level.text = "LV10"
-            mainTamaImageView.image = tamaArray.growtama[number][8]
-            mainTamaLebel.text = tamaArray.tamaName[number]
-            mentTextView.text = tamaArray.fulltamaMent.randomElement()!
-        default:
-            level.text = "노노"
+    func tamaBriefing() {
+        var foodcount: Double = UserDefaults.standard.double(forKey: "food")
+        var watercount: Double = UserDefaults.standard.double(forKey: "water")
+     
+        var levell = Int(foodcount / 5 + watercount / 2)
+
+            
+            switch levell {
+            case 0 ..< 20 :
+                level.text = "LV1"
+                mainTamaImageView.image = tamaArray.growtama[number][0]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 20 ..< 30:
+                level.text = "LV2"
+                mainTamaImageView.image = tamaArray.growtama[number][1]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 30 ..< 40:
+                level.text = "LV3"
+                mainTamaImageView.image = tamaArray.growtama[number][2]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 40 ..< 50:
+                level.text = "LV4"
+                mainTamaImageView.image = tamaArray.growtama[number][3]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 50 ..< 60:
+                level.text = "LV5"
+                mainTamaImageView.image = tamaArray.growtama[number][4]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 60 ..< 70:
+                level.text = "LV6"
+                mainTamaImageView.image = tamaArray.growtama[number][5]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 70 ..< 80:
+                level.text = "LV7"
+                mainTamaImageView.image = tamaArray.growtama[number][6]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 80 ..< 90:
+                level.text = "Lv8"
+                mainTamaImageView.image = tamaArray.growtama[number][7]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 90 ..< 100:
+                level.text = "LV9"
+                mainTamaImageView.image = tamaArray.growtama[number][8]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.tamaMent.randomElement()!
+            case 100... :
+                level.text = "LV10"
+                mainTamaImageView.image = tamaArray.growtama[number][8]
+                mainTamaLebel.text = tamaArray.tamaName[number]
+                mentTextView.text = tamaArray.fulltamaMent.randomElement()!
+            default:
+                level.text = "노노"
+            }
         }
-    }
+    
     
 }
+
+
 
 
