@@ -47,7 +47,7 @@ extension ChangeNameViewController {
 
 
 extension ViewController {
-    func wrongWordShowAlert() {
+    func numShowAlert() {
         
         let alert = UIAlertController(title: "다시 입력하세요", message: "1~99개의 양의 정수만 입력해 주세요", preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "확인", style: .default)
@@ -55,7 +55,7 @@ extension ViewController {
         present(alert, animated: true)
     }
     
-    func numshowAlert() {
+    func wrongWordshowAlert() {
         
         let alert = UIAlertController(title: "숫자만!", message: "숫자만 입력하세요", preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "확인", style: .default)

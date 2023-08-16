@@ -11,6 +11,11 @@ enum Feed: Int {
     case food
     case water
 }
+enum ValidationError: Error {
+    case emptyString
+    case isNotInt
+}
+
 
 
 class ViewController: UIViewController {
@@ -129,24 +134,78 @@ class ViewController: UIViewController {
         
     }
     
+    @discardableResult
+    func validateUserImputError(text: String) throws -> Bool {
+        
+        guard !(text.isEmpty) else {
+            print("빈값")
+            throw ValidationError.emptyString
+        }
+        
+        guard Int(text) != nil else {
+            print("숫자 아님")
+            throw ValidationError.isNotInt
+        }
+        return true
+    }
+    
     
     @IBAction func foodAndWater(_ sender: UIButton) {
         
-        guard let food = Feed(rawValue: sender.tag) else {
+        guard let feed = Feed(rawValue: sender.tag) else {
             print("오류")
             return
         }
-        switch food {
+        switch feed {
+            
         case .food:
             
-            if let foodText = foodTextField.text{
-                if foodText.isEmpty{
+            guard let foodText =  foodTextField.text else {
+                showAlert()
+                return
+            }
+            
+            do {
+                try validateUserImputError(text: foodText)
+                
+                guard let intFood = Int(foodText) else {
+                    showAlert()
+                    return
+                }
+                if intFood > 0 && intFood < 100 {
+                    let count = UserDefaults.standard.integer(forKey: "food")
+                    let num = count + intFood
+                    UserDefaults.standard.set(num, forKey: "food")
+                    foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
+                    foodTextField.text = ""
+                } else {
+                    numShowAlert()
+                }
+            }
+            catch ValidationError.emptyString {
+                
+                let count = UserDefaults.standard.integer(forKey: "food")
+                let num = count + 1
+                UserDefaults.standard.set(num, forKey: "food")
+                foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
+                
+            } catch ValidationError.isNotInt {
+                numShowAlert()
+            } catch {
+                showAlert()
+            }
+            
+            
+           /*
+            if let foodText = foodTextField.text{ // 옵셔널 바인딩
+                if foodText.isEmpty{ // isEmpty
                     let count = UserDefaults.standard.integer(forKey: "food")
                     let num = count + 1
                     UserDefaults.standard.set(num, forKey: "food")
                     foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
+                    
                 } else {
-                    guard let intFood = Int(foodText) else{ return wrongWordShowAlert()}
+                    guard let intFood = Int(foodText) else{ return wrongWordShowAlert()} // 숫자
                     if intFood > 0 && intFood < 100 {
                         let count = UserDefaults.standard.integer(forKey: "food")
                         let num = count + intFood
@@ -158,9 +217,44 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            */
             
             
         case .water:
+            
+            guard let waterText =  waterTextField.text
+                  else {
+                showAlert()
+                return
+            }
+            
+            do {
+                 try validateUserImputError(text: waterText)
+                
+                if Int(waterText)! > 0 && Int(waterText)! < 50 {
+                    let watercount = UserDefaults.standard.integer(forKey: "water")
+                    let waternum = watercount + Int(waterText)!
+                    UserDefaults.standard.set(waternum, forKey: "water")
+                    waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
+                    waterTextField.text = ""
+                } else {
+                        numShowAlert()
+                    }
+            }
+            catch ValidationError.emptyString {
+                
+                let watercount = UserDefaults.standard.integer(forKey: "water")
+                let waternum = watercount + 1
+                UserDefaults.standard.set(waternum, forKey: "water")
+                waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
+                
+            } catch ValidationError.isNotInt {
+                numShowAlert()
+            } catch {
+                showAlert()
+            }
+            
+            /*
             if let waterText = waterTextField.text{
                 if waterText.isEmpty{
                     let countt = UserDefaults.standard.integer(forKey: "water")
@@ -180,17 +274,18 @@ class ViewController: UIViewController {
                     }
                 }
             }
-            
+             */
         }
+             
         tamaBriefing()
         
     }
     
     func tamaBriefing() {
-        var foodcount: Double = UserDefaults.standard.double(forKey: "food")
-        var watercount: Double = UserDefaults.standard.double(forKey: "water")
+        let foodcount: Double = UserDefaults.standard.double(forKey: "food")
+        let watercount: Double = UserDefaults.standard.double(forKey: "water")
      
-        var levell = Int(foodcount / 5 + watercount / 2)
+        let levell = Int(foodcount / 5 + watercount / 2)
 
             
             switch levell {
