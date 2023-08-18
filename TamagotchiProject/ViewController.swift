@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sendNotification()
         //        fooood.keyboardType = .numberPad
         //        waaater.keyboardType = .numberPad
         print("====\(number)")
@@ -95,6 +95,23 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(buttonClicked))
         
     }
+    
+    func sendNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "다마고치가 배고프고 목마르대요!!"
+        content.body = "물과 밥을 주세요~!"
+        content.badge = 80
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) {
+            error in
+            print(error)
+        }
+    }
+    
     
     
     
