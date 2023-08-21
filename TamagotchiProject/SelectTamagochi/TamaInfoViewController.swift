@@ -43,13 +43,14 @@ class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
         
     }
     
-    
-    
-    @IBAction func cancleButtonClicked(_ sender: UIButton) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        cancleButton.titleLabel?.text = "취소"
+        selectButton.titleLabel?.text = "변경하기"
         
-        dismiss(animated: true, completion: nil)
     }
     
+   
     
     
     @IBAction func selectTama(_ sender: UIButton) {
