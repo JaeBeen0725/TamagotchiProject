@@ -76,14 +76,20 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oL0-6g-A32">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oL0-6g-A32" customClass="FoodButton" customModule="TamagotchiProject" customModuleProvider="target">
                                         <rect key="frame" x="278" y="0.0" width="120" height="40"/>
+                                        <color key="backgroundColor" red="0.231372565" green="0.50980395079999996" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="a7R-6e-Lek"/>
                                             <constraint firstAttribute="height" constant="40" id="wf6-5P-odp"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="foodAndWater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CCr-ht-dlk"/>
                                         </connections>
@@ -113,7 +119,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Ml-huW">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Ml-huW" customClass="WaterButton" customModule="TamagotchiProject" customModuleProvider="target">
                                         <rect key="frame" x="278" y="0.0" width="120" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="XJH-cP-BL7"/>
@@ -256,6 +262,14 @@
             <point key="canvasLocation" x="209" y="-28"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="o9P-Ml-huW">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="oL0-6g-A32">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+    </designables>
     <resources>
         <image name="1-6" width="152" height="151"/>
         <image name="bubble" width="222" height="142"/>

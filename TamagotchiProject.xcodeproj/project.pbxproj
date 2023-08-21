@@ -17,6 +17,8 @@
 		6E524F8F2A7CF5FD00EE9283 /* SelectTamagochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E524F8E2A7CF5FD00EE9283 /* SelectTamagochiViewController.swift */; };
 		6E524F922A7D004E00EE9283 /* TamagotchiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E524F902A7D004E00EE9283 /* TamagotchiCollectionViewCell.swift */; };
 		6E524F932A7D004E00EE9283 /* TamagotchiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E524F912A7D004E00EE9283 /* TamagotchiCollectionViewCell.xib */; };
+		6ED6EEC32A934A6E00375785 /* FoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6EEC22A934A6E00375785 /* FoodButton.swift */; };
+		6ED6EEC52A934A8100375785 /* WaterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6EEC42A934A8100375785 /* WaterButton.swift */; };
 		6EDC6D412A7F698600E5D584 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC6D402A7F698600E5D584 /* SettingTableViewCell.swift */; };
 		6EDC6D432A7F835800E5D584 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC6D422A7F835800E5D584 /* ChangeNameViewController.swift */; };
 		6EF72DDE2A7D085D00536017 /* SetUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF72DDD2A7D085D00536017 /* SetUp.storyboard */; };
@@ -40,6 +42,8 @@
 		6E524F8E2A7CF5FD00EE9283 /* SelectTamagochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTamagochiViewController.swift; sourceTree = "<group>"; };
 		6E524F902A7D004E00EE9283 /* TamagotchiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E524F912A7D004E00EE9283 /* TamagotchiCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TamagotchiCollectionViewCell.xib; sourceTree = "<group>"; };
+		6ED6EEC22A934A6E00375785 /* FoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodButton.swift; sourceTree = "<group>"; };
+		6ED6EEC42A934A8100375785 /* WaterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterButton.swift; sourceTree = "<group>"; };
 		6EDC6D402A7F698600E5D584 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		6EDC6D422A7F835800E5D584 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		6EF72DDD2A7D085D00536017 /* SetUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetUp.storyboard; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				6E524F752A7CD33000EE9283 /* SceneDelegate.swift */,
 				6E524F772A7CD33000EE9283 /* ViewController.swift */,
 				6E524F792A7CD33000EE9283 /* Main.storyboard */,
+				6ED6EEC42A934A8100375785 /* WaterButton.swift */,
+				6ED6EEC22A934A6E00375785 /* FoodButton.swift */,
 				6E524F7C2A7CD33200EE9283 /* Assets.xcassets */,
 				6E524F7E2A7CD33200EE9283 /* LaunchScreen.storyboard */,
 				6E524F812A7CD33200EE9283 /* Info.plist */,
@@ -206,9 +212,11 @@
 				6EF72DE02A7D088A00536017 /* SetUpViewController.swift in Sources */,
 				6EDC6D432A7F835800E5D584 /* ChangeNameViewController.swift in Sources */,
 				6EF72DE42A7D109700536017 /* TamaCellValue.swift in Sources */,
+				6ED6EEC52A934A8100375785 /* WaterButton.swift in Sources */,
 				6EF72DEA2A7DD0DB00536017 /* TamaInfoViewController.swift in Sources */,
 				6E524F922A7D004E00EE9283 /* TamagotchiCollectionViewCell.swift in Sources */,
 				6E524F782A7CD33000EE9283 /* ViewController.swift in Sources */,
+				6ED6EEC32A934A6E00375785 /* FoodButton.swift in Sources */,
 				6EF72DE62A7D126A00536017 /* TamaCellArray.swift in Sources */,
 				6E524F742A7CD33000EE9283 /* AppDelegate.swift in Sources */,
 				6E524F8F2A7CF5FD00EE9283 /* SelectTamagochiViewController.swift in Sources */,
