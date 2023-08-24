@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-      // UserDefaults.standard.set(false, forKey: "isLaunched")
+       UserDefaults.standard.set(false, forKey: "isLaunched")
       
         let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
         print(isLaunched)

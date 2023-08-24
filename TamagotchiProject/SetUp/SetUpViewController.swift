@@ -9,6 +9,7 @@ import UIKit
 
 
 class SetUpViewController: UIViewController {
+    
  let settingTableViewCell = SettingTableViewCell()
     @IBOutlet var tata: UITableView!
     override func viewDidLoad() {
@@ -49,18 +50,17 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let changNameStoryBoard = UIStoryboard(name: "SetUp", bundle: nil)
-        let changNameCollectionView = changNameStoryBoard.instantiateViewController(identifier: "ChangeNameViewController") as! ChangeNameViewController
-
-        let selectStoryBoard = UIStoryboard(name: "Select", bundle: nil)
-        let selectinfo = selectStoryBoard.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
-        
+       
         if indexPath.row == 0 {
             
-            navigationController?.pushViewController(changNameCollectionView, animated: true)
+            transition(viewController: ChangeNameViewController.self, storyboard: "SetUp", style: .push)
+            
             
         } else if indexPath.row == 1 {
-            navigationController?.pushViewController(selectinfo, animated: true)
+            
+            transition(viewController: SelectTamagochiViewController.self, storyboard: "Select", style: .push)
+       
+            
         } else if indexPath.row == 2 {
             print(indexPath.row)
             let alert = UIAlertController(title: "데이터 초기화", message: "처음부터 다시 키우시겠습니까?", preferredStyle: .alert)

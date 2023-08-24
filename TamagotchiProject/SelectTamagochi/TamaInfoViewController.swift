@@ -7,7 +7,7 @@
 import UIKit
 
 class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
-    
+    let tamacellArray = TamaCellArray()
     
     @IBOutlet var viewview: UIView!
     @IBOutlet var tamaSelectImage: UIImageView!
@@ -16,10 +16,10 @@ class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
     @IBOutlet var cancleButton: UIButton!
     @IBOutlet var selectButton: UIButton!
     
-    var tamaSelectImage1: UIImage = UIImage(named: "1-2")!
-    var tamaSelectLabel1: String = "w"
-    var tamaSelectMentTextView1: String = "q"
-    
+//    var tamaSelectImage1: UIImage = UIImage(named: "1-2")!
+//    var tamaSelectLabel1: String = "w"
+//    var tamaSelectMentTextView1: String = "q"
+    let selectNum = UserDefaults.standard.integer(forKey: "num")
     override func viewDidLoad() {
         super.viewDidLoad()
         cancleButton.titleLabel?.text = "취소"
@@ -29,14 +29,14 @@ class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
         viewview.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         tamaSelectLabel.layer.cornerRadius = 5
         
-        tamaSelectImage.image = tamaSelectImage1
+        tamaSelectImage.image = tamacellArray.tamaImage[selectNum]
         tamaSelectLabel.sizeToFit()
         tamaSelectLabel.adjustsFontSizeToFitWidth = true
-        tamaSelectLabel.text = tamaSelectLabel1
+        tamaSelectLabel.text = tamacellArray.tamaName[selectNum]
         tamaSelectLabel.layer.cornerRadius =  5
         tamaSelectLabel.layer.borderWidth = 1
         tamaSelectLabel.textAlignment = .center
-        tamaSelectMentTextView.text = tamaSelectMentTextView1
+        tamaSelectMentTextView.text = tamacellArray.tamament[selectNum]
         tamaSelectMentTextView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         tamaSelectMentTextView.textAlignment = .center
         
@@ -51,25 +51,32 @@ class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
     }
     
    
+    @IBAction func cancleButton(_ sender: UIButton) {
+        
+      dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func selectTama(_ sender: UIButton) {
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
         let mainvc = mainsb.instantiateViewController(identifier: "ViewController") as! ViewController
         let nv = UINavigationController(rootViewController: mainvc)
-        
+        UserDefaults.standard.set(true, forKey: "isLaunched")
         
         sceneDelegate?.window?.rootViewController = nv
         sceneDelegate?.window?.makeKeyAndVisible()
         
-        //    mainvc.number = UserDefaults.standard.integer(forKey: "num")
+            mainvc.number = UserDefaults.standard.integer(forKey: "num")
         // nv.modalPresentationStyle = .fullScreen
         
         
     }
+    
+    
     
     
     

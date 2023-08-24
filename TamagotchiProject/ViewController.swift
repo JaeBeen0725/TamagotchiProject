@@ -86,10 +86,10 @@ class ViewController: UIViewController {
         
         tamaBriefing()
         
-        
         mentTextView.textAlignment = .center
         //        mentTextView.adjustsFontForContentSizeCategory = true
         mentTextView.sizeToFit()
+        
         
         //  navigationController?.navigationBar.topItem?.backButtonTitle = "뒤로"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(buttonClicked))
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         content.body = "물과 밥을 주세요~!"
         content.badge = 80
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 400, repeats: true)
         
         let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
         
@@ -143,11 +143,8 @@ class ViewController: UIViewController {
     @objc
     func buttonClicked() {
         
-        let targetStoryBoard = UIStoryboard(name: "SetUp", bundle: nil)
-        let selectVC = targetStoryBoard.instantiateViewController(identifier: "SetUpViewController") as! SetUpViewController
-        
-        navigationController?.pushViewController(selectVC, animated: true)
-        
+        transition(viewController: SetUpViewController.self, storyboard: "SetUp", style: .push)
+       
         
     }
     
@@ -212,29 +209,6 @@ class ViewController: UIViewController {
                 showAlert()
             }
             
-            
-           /*
-            if let foodText = foodTextField.text{ // 옵셔널 바인딩
-                if foodText.isEmpty{ // isEmpty
-                    let count = UserDefaults.standard.integer(forKey: "food")
-                    let num = count + 1
-                    UserDefaults.standard.set(num, forKey: "food")
-                    foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
-                    
-                } else {
-                    guard let intFood = Int(foodText) else{ return wrongWordShowAlert()} // 숫자
-                    if intFood > 0 && intFood < 100 {
-                        let count = UserDefaults.standard.integer(forKey: "food")
-                        let num = count + intFood
-                        UserDefaults.standard.set(num, forKey: "food")
-                        foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
-                        foodTextField.text = ""
-                    }else {
-                        wrongWordShowAlert()
-                    }
-                }
-            }
-            */
             
             
         case .water:

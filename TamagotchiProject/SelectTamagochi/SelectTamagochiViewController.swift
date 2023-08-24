@@ -76,22 +76,22 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
         
         
         
-        let targetStoryBoard = UIStoryboard(name: "Select", bundle: nil)
-        let selectVC = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
+//        let targetStoryBoard = UIStoryboard(name: "Select", bundle: nil)
+//        let vc = targetStoryBoard.instantiateViewController(identifier: "TamaInfoViewController") as! TamaInfoViewController
         
         if indexPath.row < 3 {
             UserDefaults.standard.set(indexPath.row, forKey: "num")
             
-            selectVC.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
-            selectVC.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
-            selectVC.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
+//            vc.tamaSelectImage1 = tamaArray.tamaImage[indexPath.row]
+//            vc.tamaSelectLabel1 = tamaArray.tamaName[indexPath.row]
+//            vc.tamaSelectMentTextView1 = tamaArray.tamament[indexPath.row]
             
+            transition(viewController: TamaInfoViewController.self, storyboard: "Select", style: .presentNavigation)
             
-            let navigation = UINavigationController(rootViewController: selectVC)
-            navigation.modalPresentationStyle = .overCurrentContext
-            
-            
-            present(navigation, animated: true)
+//            let navigation = UINavigationController(rootViewController: vc)
+//            navigation.modalPresentationStyle = .overCurrentContext
+//
+//            present(navigation, animated: true)
         } else {
             showAlert1()
         }
