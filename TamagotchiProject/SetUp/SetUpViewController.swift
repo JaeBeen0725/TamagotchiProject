@@ -40,12 +40,12 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell")!
         
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") else { return UITableViewCell() }
+
         cell.textLabel?.text = settingTableViewCell.option[indexPath.row]
-        
-        
-        
+  
         return cell
     }
     
