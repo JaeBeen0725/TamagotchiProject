@@ -8,7 +8,7 @@
 import UIKit
 
 class ChangeNameViewController: UIViewController {
-    let vc = ViewController()
+    
     @IBOutlet var bossNameChangeTextField: UITextField!
     
     override func viewDidLoad() {
