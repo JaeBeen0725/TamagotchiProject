@@ -9,6 +9,7 @@ import UIKit
 
 
 class SelectTamagochiViewController: UIViewController {
+   
     var tamaArray = TamaCellArray()
     
     @IBOutlet var tamaSelectCollectionView: UICollectionView!
@@ -59,7 +60,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TamagotchiCollectionViewCell.tamaIdentify, for: indexPath) as? TamagotchiCollectionViewCell else {
-            showAlert()
+            totalAlert(view: ChangeNameViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
             return UICollectionViewCell()
         }
         
@@ -93,7 +94,7 @@ extension SelectTamagochiViewController: UICollectionViewDelegate,UICollectionVi
 //
 //            present(navigation, animated: true)
         } else {
-            showAlert1()
+            totalAlert(view: ChangeNameViewController(), alertTitle: "타마가 없어요", alertMessage: "추후 없데이트 예정 입니다.")
         }
     }
     

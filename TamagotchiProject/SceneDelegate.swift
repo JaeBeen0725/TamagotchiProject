@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
    
-    let asd = SelectTamagochiViewController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
       
@@ -20,12 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-       UserDefaults.standard.set(false, forKey: "isLaunched")
+       
       
         let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
         print(isLaunched)
 
         if isLaunched == false {
+
             let sb = UIStoryboard(name: "Select", bundle: nil)
             let vc = sb.instantiateViewController(identifier: "SelectTamagochiViewController") as! SelectTamagochiViewController
             

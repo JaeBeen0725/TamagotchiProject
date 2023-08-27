@@ -170,12 +170,13 @@ class ViewController: UIViewController {
             print("오류")
             return
         }
+   
         switch feed {
             
         case .food:
             
             guard let foodText =  foodTextField.text else {
-                showAlert()
+                totalAlert(view: ViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
                 return
             }
             
@@ -183,7 +184,7 @@ class ViewController: UIViewController {
                 try validateUserImputError(text: foodText)
                 
                 guard let intFood = Int(foodText) else {
-                    showAlert()
+                    totalAlert(view: ViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
                     return
                 }
                 if intFood > 0 && intFood < 100 {
@@ -193,7 +194,7 @@ class ViewController: UIViewController {
                     foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
                     foodTextField.text = ""
                 } else {
-                    numShowAlert()
+                    totalAlert(view: ViewController(), alertTitle: "다시입력하세요", alertMessage: "한번에1~99개만 먹을수 있어요")
                 }
             }
             catch ValidationError.emptyString {
@@ -204,9 +205,9 @@ class ViewController: UIViewController {
                 foodCount.text = "밥알 \(UserDefaults.standard.integer(forKey: "food"))개"
                 
             } catch ValidationError.isNotInt {
-                numShowAlert()
+                totalAlert(view: ViewController(), alertTitle: "다시입력하세요", alertMessage: "한번에1~99개만 먹을수 있어요")
             } catch {
-                showAlert()
+                totalAlert(view: ViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
             }
             
             
@@ -215,7 +216,7 @@ class ViewController: UIViewController {
             
             guard let waterText =  waterTextField.text
                   else {
-                showAlert()
+                totalAlert(view: ViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
                 return
             }
             
@@ -229,7 +230,7 @@ class ViewController: UIViewController {
                     waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
                     waterTextField.text = ""
                 } else {
-                        numShowAlert()
+                    totalAlert(view: ViewController(), alertTitle: "다시입력하세요", alertMessage: "한번에1~49방울만 마실수 있어요")
                     }
             }
             catch ValidationError.emptyString {
@@ -240,9 +241,9 @@ class ViewController: UIViewController {
                 waterCount.text = "물방울 \(UserDefaults.standard.integer(forKey: "water"))개"
                 
             } catch ValidationError.isNotInt {
-                numShowAlert()
+                totalAlert(view: ViewController(), alertTitle: "다시입력하세요", alertMessage: "한번에1~49방울만 마실수 있어요")
             } catch {
-                showAlert()
+                totalAlert(view: ViewController(), alertTitle: "오류", alertMessage: "관리자에게 문의하세요")
             }
             
             /*

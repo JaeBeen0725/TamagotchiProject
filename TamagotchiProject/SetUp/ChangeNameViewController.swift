@@ -45,7 +45,7 @@ class ChangeNameViewController: UIViewController {
                 print(UserDefaults.standard.string(forKey: "bossName")!)
                 navigationController?.popViewController(animated: true)
             } else  {
-                showAlert()
+                totalAlert(view: ChangeNameViewController(), alertTitle: "다시 입력하세요", alertMessage: "2~6글자 입니다.")
                 bossNameChangeTextField.text = ""
             }
         }

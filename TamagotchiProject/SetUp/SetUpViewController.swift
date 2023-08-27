@@ -9,6 +9,7 @@ import UIKit
 
 
 class SetUpViewController: UIViewController {
+     let a = SelectTamagochiViewController()
     
  let settingTableViewCell = SettingTableViewCell()
     @IBOutlet var tata: UITableView!
@@ -71,8 +72,9 @@ extension SetUpViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.dictionaryRepresentation().keys {
                 UserDefaults.standard.removeObject(forKey: key.description)
                 
-               self.navigationController?.popToRootViewController(animated: false)
                 
+         
+            self.navigationController?.popToRootViewController(animated: false)
             }
             })
             

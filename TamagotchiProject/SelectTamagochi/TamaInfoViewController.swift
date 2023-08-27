@@ -59,19 +59,18 @@ class TamaInfoViewController: UIViewController, UIWindowSceneDelegate{
     
     @IBAction func selectTama(_ sender: UIButton) {
         
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        
-        let mainsb = UIStoryboard(name: "Main", bundle: nil)
-        let mainvc = mainsb.instantiateViewController(identifier: "ViewController") as! ViewController
-        let nv = UINavigationController(rootViewController: mainvc)
         UserDefaults.standard.set(true, forKey: "isLaunched")
         
-        sceneDelegate?.window?.rootViewController = nv
-        sceneDelegate?.window?.makeKeyAndVisible()
+        let mainsb = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let mainvc = mainsb.instantiateViewController(identifier: "ViewController") as? ViewController else { return }
+        let nv = UINavigationController(rootViewController: mainvc)
+       
+        present(nv, animated: false)
+      
         
             mainvc.number = UserDefaults.standard.integer(forKey: "num")
-        // nv.modalPresentationStyle = .fullScreen
+     
         
         
     }
